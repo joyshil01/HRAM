@@ -1,0 +1,40 @@
+name: hrm
+description: A new Flutter project.
+
+publish_to: "none"
+
+# of the product and file versions while build-number is used as the build suffix.
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.0.6 <4.0.0"
+
+# versions available, run `flutter pub outdated`.
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  lottie:
+  flutter_svg:
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+# The following section is specific to Flutter packages.
+flutter:
+  uses-material-design: true
+
+  # To add assets to your application, add an assets section, like this:
+  assets:
+    - assets/logo/
+    - assets/image/
+    - assets/json/
+    - assets/svg/
+
+  fonts:
+    - family: Lora
+      fonts:
+        - asset: assets/fonts/Lora-Regular.ttf
+        # - asset: assets/fonts/Lora-Medium.ttf
+        # - asset: assets/fonts/Lora-Bold.ttf
