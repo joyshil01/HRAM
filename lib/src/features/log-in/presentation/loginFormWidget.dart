@@ -1,6 +1,7 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
+import 'package:hrm/src/routing/routeNames.dart';
 import '../../../utils/sizes.dart';
 import '../../../utils/textString.dart';
 
@@ -52,7 +53,9 @@ class LoginForm extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, RouteNames.dashBoard);
+                },
                 child: Text(sLogin.toUpperCase()),
               ),
             ),
