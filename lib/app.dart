@@ -10,14 +10,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => FormDataProvider(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => FormDataProvider()),
+        // ChangeNotifierProvider(create: (context) => JsonDataProvider()),
+      ],
       child: MaterialApp(
         theme: TAppTheme.lightTheme,
         darkTheme: TAppTheme.darkTheme,
         themeMode: ThemeMode.light,
         debugShowCheckedModeBanner: false,
-        initialRoute: RouteNames.login,
+        initialRoute: RouteNames.dashBoard,
         onGenerateRoute: Routes.generateRoute,
         onGenerateTitle: (BuildContext context) => 'HRM',
       ),

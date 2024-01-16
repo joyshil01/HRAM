@@ -33,6 +33,7 @@ flutter:
     - assets/image/
     - assets/json/
     - assets/svg/
+    - assets/jsonData/
 
   fonts:
     - family: Lora

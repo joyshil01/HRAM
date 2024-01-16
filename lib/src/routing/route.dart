@@ -18,10 +18,11 @@ class Routes {
         );
 
       case RouteNames.dashBoardDetails:
-        final formData = settings.arguments as Map<String, dynamic>;
+        // final formData = settings.arguments as Map<String, dynamic>;
         return MaterialPageRoute(
           builder: (BuildContext context) =>
-              DashboardDetails(formData: formData),
+              // DashboardDetails(formData: formData),
+              DashboardDetails(),
         );
 
       default:

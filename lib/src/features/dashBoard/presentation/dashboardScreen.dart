@@ -38,6 +38,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
               child: CircularProgressIndicator(),
             )
           : GridView.builder(
+              physics: const BouncingScrollPhysics(),
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
                 mainAxisSpacing: 1,
@@ -53,7 +54,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       Navigator.pushNamed(
                         context,
                         RouteNames.dashBoardDetails,
-                        arguments: formData,
+                        // arguments: formData,
                       );
                     },
                     child: SizedBox(
@@ -69,11 +70,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              Text(formData['formId'].toString()),
+                              Text(formData['pk'].toString()),
                               const SizedBox(height: 10),
-                              Text(formData['formVersion'].toString()),
-                              const SizedBox(height: 10),
-                              Text(formData['createdBy'].toString()),
+                              Text(formData['name'].toString()),
+                              // const SizedBox(height: 10),
+                              // Text(formData['createdBy'].toString()),
                             ],
                           ),
                         ),
