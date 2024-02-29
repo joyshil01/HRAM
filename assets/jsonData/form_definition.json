@@ -79,7 +79,7 @@
             },
             "minLength": {
               "validationValue": 3,
-              "validationMessage": "Name length should be grater then 3 char"
+              "validationMessage": "Phone number should be grater then 3 char"
             }
           }
         },
