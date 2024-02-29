@@ -13,3 +13,6 @@ const String sGoogleLogo = 'assets/image/loginG.png';
 
 ////////////// Forget pasword //////////////////////////
 const String sForgetPassword = 'assets/svg/forgetSvg.svg';
+
+////////////////////////// main page //////////////////////////
+const String profileImage = 'assets/image/profile.png';

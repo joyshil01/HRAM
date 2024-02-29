@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import '../../../utils/imageString.dart';
-import '../../../utils/textString.dart';
+import '../../../utils/text/textString.dart';
 
 class LoginHeader extends StatelessWidget {
   const LoginHeader({

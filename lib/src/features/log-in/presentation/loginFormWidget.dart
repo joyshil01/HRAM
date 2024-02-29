@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:hrm/src/routing/routeNames.dart';
 import '../../../utils/sizes.dart';
-import '../../../utils/textString.dart';
+import '../../../utils/text/textString.dart';
 
 class LoginForm extends StatelessWidget {
   const LoginForm({
@@ -54,7 +54,7 @@ class LoginForm extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, RouteNames.dashBoard);
+                  Navigator.pushNamed(context, RouteNames.mainScreen);
                 },
                 child: Text(sLogin.toUpperCase()),
               ),

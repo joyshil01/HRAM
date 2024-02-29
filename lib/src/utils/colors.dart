@@ -15,3 +15,6 @@ const sOnboardingPage2Color = Color(0xfffddcdf);
 const sOnboardingPage3Color = Color(0xffffdcbd);
 
 const sSignupTextColor = Colors.blue;
+
+///////////// text color /////////////////
+const textColor = Colors.black;

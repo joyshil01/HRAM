@@ -6,12 +6,12 @@ import 'package:provider/provider.dart';
 import '../../../widgets/customSnakWidget.dart';
 import '../data/formDefinitionController.dart';
 
-class DashboardDetails extends StatefulWidget {
+class FormDefinitionDetails extends StatefulWidget {
   @override
-  State<DashboardDetails> createState() => _DashboardDetailsState();
+  State<FormDefinitionDetails> createState() => _FormDefinitionDetailsState();
 }
 
-class _DashboardDetailsState extends State<DashboardDetails> {
+class _FormDefinitionDetailsState extends State<FormDefinitionDetails> {
   bool isLoading = true;
   Map<String, TextEditingController> textEditingControllers = {};
   Map<String, GlobalKey<ShakeWidgetState>> textFieldErrorShakeKeys = {};

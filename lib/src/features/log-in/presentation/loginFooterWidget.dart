@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import '../../../utils/colors.dart';
 import '../../../utils/imageString.dart';
 import '../../../utils/sizes.dart';
-import '../../../utils/textString.dart';
+import '../../../utils/text/textString.dart';
 
 class LoginFooterWidget extends StatelessWidget {
   const LoginFooterWidget({

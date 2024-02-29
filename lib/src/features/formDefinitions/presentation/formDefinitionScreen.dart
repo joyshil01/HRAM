@@ -3,14 +3,14 @@ import 'package:hrm/src/routing/routeNames.dart';
 import 'package:provider/provider.dart';
 import '../data/formDefinitionController.dart';
 
-class DashboardScreen extends StatefulWidget {
-  const DashboardScreen({Key? key}) : super(key: key);
+class FormDefinitionScreen extends StatefulWidget {
+  const FormDefinitionScreen({Key? key}) : super(key: key);
 
   @override
-  _DashboardScreenState createState() => _DashboardScreenState();
+  _FormDefinitionScreenState createState() => _FormDefinitionScreenState();
 }
 
-class _DashboardScreenState extends State<DashboardScreen> {
+class _FormDefinitionScreenState extends State<FormDefinitionScreen> {
   bool isLoading = true;
   @override
   void initState() {
@@ -53,7 +53,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     onTap: () {
                       Navigator.pushNamed(
                         context,
-                        RouteNames.dashBoardDetails,
+                        RouteNames.formDefinitionDetails,
                         // arguments: formData,
                       );
                     },
