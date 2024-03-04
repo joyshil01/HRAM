@@ -54,7 +54,7 @@ class LoginForm extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, RouteNames.mainScreen);
+                  Navigator.pushNamed(context, RouteNames.bottomNav);
                 },
                 child: Text(sLogin.toUpperCase()),
               ),

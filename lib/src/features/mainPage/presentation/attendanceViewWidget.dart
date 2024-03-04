@@ -159,8 +159,8 @@ class _AttendanceViewWidgetState extends State<AttendanceViewWidget> {
   @override
   Widget build(BuildContext context) {
     return DraggableScrollableSheet(
-      initialChildSize: 0.6,
-      minChildSize: 0.6,
+      initialChildSize: 0.55,
+      minChildSize: 0.55,
       maxChildSize: 0.9,
       builder: (context, scrollController) {
         return Card(

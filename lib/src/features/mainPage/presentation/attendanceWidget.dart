@@ -17,10 +17,10 @@ class AttendanceWidget extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 16),
           child: Column(
             children: [
-              const Row(
+              Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Column(
+                  const Column(
                     children: [
                       Text(
                         'Check-in',
@@ -34,7 +34,7 @@ class AttendanceWidget extends StatelessWidget {
                       Text(
                         '10:21:58',
                         style: TextStyle(
-                          color: textColor,
+                          color: Color.fromARGB(255, 23, 144, 85),
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
                         ),
@@ -43,12 +43,23 @@ class AttendanceWidget extends StatelessWidget {
                   ),
                   Column(
                     children: [
-                      Text(
-                        'Monday',
-                        style: TextStyle(
-                          color: textColor,
-                          fontSize: 14,
-                          fontWeight: FontWeight.w500,
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30),
+                          ),
+                        ),
+                        onPressed: () {},
+                        child: const Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 20),
+                          child: Text(
+                            'Monday',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 14,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
                         ),
                       ),
                       Text(
@@ -75,7 +86,7 @@ class AttendanceWidget extends StatelessWidget {
                       Text(
                         '19:02:41',
                         style: TextStyle(
-                          color: textColor,
+                          color: Color.fromARGB(255, 244, 108, 98),
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
                         ),
@@ -167,7 +178,7 @@ class AttendanceWidget extends StatelessWidget {
                         '00',
                         style: TextStyle(
                           color: textColor,
-                          fontSize: 16,
+                          fontSize: 22,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -188,7 +199,7 @@ class AttendanceWidget extends StatelessWidget {
                         '00',
                         style: TextStyle(
                           color: textColor,
-                          fontSize: 16,
+                          fontSize: 22,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -209,7 +220,7 @@ class AttendanceWidget extends StatelessWidget {
                         '00',
                         style: TextStyle(
                           color: textColor,
-                          fontSize: 16,
+                          fontSize: 22,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -217,7 +228,7 @@ class AttendanceWidget extends StatelessWidget {
                   ),
                 ],
               ),
-              const SizedBox(height: 30),
+              const SizedBox(height: 25),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
