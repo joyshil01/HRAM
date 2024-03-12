@@ -20,9 +20,9 @@ class MyApp extends StatelessWidget {
         darkTheme: TAppTheme.darkTheme,
         themeMode: ThemeMode.light,
         debugShowCheckedModeBanner: false,
-        initialRoute: RouteNames.login,
+        initialRoute: RouteNames.bottomNav,
         onGenerateRoute: Routes.generateRoute,
-        onGenerateTitle: (BuildContext context) => 'HRM',
+        onGenerateTitle: (BuildContext context) => 'WAZO',
       ),
     );
   }

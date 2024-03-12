@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
+// import '../../../utils/colors.dart';
+// import '../../../utils/imageString.dart';
 import '../../../widgets/customSnakWidget.dart';
 import '../data/formDefinitionController.dart';
 
@@ -39,10 +41,29 @@ class _FormDefinitionDetailsState extends State<FormDefinitionDetails> {
     }
 
     return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: true,
-        title: Text(jsonDataNotifier['formDescription'].toString()),
-      ),
+      // appBar: AppBar(
+      //   elevation: 0,
+      //   backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      //   automaticallyImplyLeading: false,
+      //   leading: Row(
+      //     children: [
+      //       Padding(
+      //         padding: const EdgeInsets.only(left: 2),
+      //         child: InkWell(
+      //           onTap: () {},
+      //           child: const CircleAvatar(
+      //             radius: 18,
+      //             backgroundImage: AssetImage(profileImage),
+      //           ),
+      //         ),
+      //       ),
+      //     ],
+      //   ),
+      //   title: Text(
+      //     jsonDataNotifier['formDescription'].toString(),
+      //     style: const TextStyle(color: textColor, fontSize: 20),
+      //   ),
+      // ),
       body: ListView.builder(
         physics: const BouncingScrollPhysics(),
         itemCount: jsonDataNotifier['formSteps'].length,

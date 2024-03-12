@@ -1,5 +1,8 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 import 'package:hrm/src/routing/routeNames.dart';
+import 'package:hrm/src/utils/colors.dart';
 import 'package:provider/provider.dart';
 import '../data/formDefinitionController.dart';
 
@@ -31,7 +34,19 @@ class _FormDefinitionScreenState extends State<FormDefinitionScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('FormDefinitions'),
+        title: Row(
+          children: [
+            IconButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: const Icon(Icons.arrow_back_ios),
+            ),
+            const Text('FormDefinitions'),
+          ],
+        ),
+        automaticallyImplyLeading: false,
+        backgroundColor: appBarBg,
       ),
       body: isLoading
           ? const Center(

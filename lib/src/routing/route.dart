@@ -6,6 +6,7 @@ import '../features/formDefinitions/presentation/formDefinitionDetails.dart';
 import '../features/formDefinitions/presentation/formDefinitionScreen.dart';
 import '../features/log-in/presentation/loginScreen.dart';
 import '../features/mainPage/presentation/mainScreen.dart';
+import '../features/search/presentation/searchScreen.dart';
 import '../widgets/bottomNavBar.dart';
 
 class Routes {
@@ -21,7 +22,7 @@ class Routes {
           builder: (BuildContext context) => const FormDefinitionScreen(),
         );
 
-      case RouteNames.formDefinition:
+      case RouteNames.formDefinitionDetails:
         // final formData = settings.arguments as Map<String, dynamic>;
         return MaterialPageRoute(
           builder: (BuildContext context) =>
@@ -37,6 +38,11 @@ class Routes {
       case RouteNames.bottomNav:
         return MaterialPageRoute(
           builder: (BuildContext context) => BottomNavBar(),
+        );
+
+      case RouteNames.searchScreen:
+        return MaterialPageRoute(
+          builder: (BuildContext context) => SearchScreen(),
         );
 
       default:

@@ -1,5 +1,14 @@
+// ignore_for_file: file_names, prefer_const_constructors, use_key_in_widget_constructors, library_private_types_in_public_api, prefer_final_fields, unused_element
+
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:hrm/src/features/mainPage/presentation/mainScreen.dart';
+// import '../features/formDefinitions/presentation/formDefinitionDetails.dart';
+import '../features/formDefinitions/presentation/formDefinitionScreen.dart';
+import '../features/formDefinitions/presentation/formScreen.dart';
+import '../features/notifications/presentation/notificationScreen.dart';
+import '../features/others/presentation/othersScreen.dart';
+// import 'customCalendar.dart';
 
 class BottomNavBar extends StatefulWidget {
   @override
@@ -8,12 +17,15 @@ class BottomNavBar extends StatefulWidget {
 
 class _BottomNavBarState extends State<BottomNavBar> {
   int _selectedIndex = 0;
+  // int _notificationCount = 1;
 
-  static List<Widget> _widgetOptions = <Widget>[
+  final List<Widget> _widgetOptions = <Widget>[
     MainScreen(),
-    MainScreen(),
-    MainScreen(),
-    MainScreen(),
+    FormDefinitionScreen(),
+    // FormDefinitionDetails(),
+    FormScreen(),
+    NotificationScreen(),
+    othersScreen(),
   ];
 
   void _onItemTapped(int index) {
@@ -22,35 +34,112 @@ class _BottomNavBarState extends State<BottomNavBar> {
     });
   }
 
+  // void _onNewNotification() {
+  //   setState(() {
+  //     _notificationCount++;
+  //   });
+  // }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: IndexedStack(
-        index: _selectedIndex,
-        children: _widgetOptions,
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        currentIndex: _selectedIndex,
-        onTap: _onItemTapped,
-        items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
+    return WillPopScope(
+      onWillPop: () async {
+        showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: const Text('Exit App'),
+            content: const Text('Do you want to exit this app?'),
+            actions: [
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: const Text('No'),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  exit(0);
+                },
+                child: const Text('Yes'),
+              ),
+            ],
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.people),
-            label: 'Network',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.notifications),
-            label: 'Notifications',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profile',
-          ),
-        ],
+        );
+        return false;
+      },
+      child: Scaffold(
+        body: IndexedStack(
+          index: _selectedIndex,
+          children: _widgetOptions,
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          currentIndex: _selectedIndex,
+          onTap: _onItemTapped,
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home_sharp),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.dehaze),
+              label: 'Lists',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.add_circle_sharp,
+                size: 35,
+              ),
+              label: 'Add',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.bar_chart,
+                size: 35,
+              ),
+              label: 'Reports',
+            ),
+
+            // BottomNavigationBarItem(
+            //   icon: Stack(
+            //     children: [
+            //       Icon(Icons.notifications_sharp),
+            //       if (_notificationCount > 0)
+            //         Positioned(
+            //           right: 0,
+            //           child: Container(
+            //             padding: EdgeInsets.all(2),
+            //             decoration: BoxDecoration(
+            //               color: Colors.red,
+            //               borderRadius: BorderRadius.circular(10),
+            //             ),
+            //             constraints: BoxConstraints(
+            //               minWidth: 12,
+            //               minHeight: 12,
+            //             ),
+            //             child: Text(
+            //               _notificationCount > 99
+            //                   ? '99+'
+            //                   : '$_notificationCount',
+            //               style: TextStyle(
+            //                 color: Colors.white,
+            //                 fontSize: 10,
+            //               ),
+            //               textAlign: TextAlign.center,
+            //             ),
+            //           ),
+            //         ),
+            //     ],
+            //   ),
+            //   label: 'Notification',
+            // ),
+
+            BottomNavigationBarItem(
+              icon: Icon(Icons.dataset),
+              label: 'Other',
+            ),
+          ],
+        ),
       ),
     );
   }

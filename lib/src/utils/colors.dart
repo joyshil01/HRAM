@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 
+////////////////// appBar color //////////////////
+const appBarBg = Color(0xFF00AFF0);
+
+//////////////////////////////////////////////////
+
 const sPrimariColor = Color(0xFFFFE400);
 const sSecondaryColor = Color(0xFF272727);
 const sAccentColor = Color(0xFF001BFF);
@@ -18,3 +23,4 @@ const sSignupTextColor = Colors.blue;
 
 ///////////// text color /////////////////
 const textColor = Colors.black;
+const textColor2 = Colors.white;

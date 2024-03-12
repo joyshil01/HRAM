@@ -8,4 +8,5 @@ class RouteNames {
   static const String formDefinitionDetails = 'Form_Definition_Details';
   static const String mainScreen = 'main-screen';
   static const String bottomNav = 'bottom-nav';
+  static const String searchScreen = 'search-screen';
 }

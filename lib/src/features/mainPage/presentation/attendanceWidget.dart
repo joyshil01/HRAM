@@ -1,12 +1,62 @@
-// ignore_for_file: file_names
+// ignore_for_file: file_names, constant_identifier_names
 
+import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import '../../../utils/colors.dart';
 
-class AttendanceWidget extends StatelessWidget {
+enum ButtonState {
+  CheckIn,
+  CheckOut,
+  Disabled,
+}
+
+class AttendanceWidget extends StatefulWidget {
   const AttendanceWidget({
     super.key,
   });
+
+  @override
+  State<AttendanceWidget> createState() => _AttendanceWidgetState();
+}
+
+class _AttendanceWidgetState extends State<AttendanceWidget> {
+  // bool isCheckedIn = false;
+  DateFormat dayCount = DateFormat('EEEE');
+  DateFormat day = DateFormat('dd');
+  DateFormat month = DateFormat('MMM');
+  DateFormat year = DateFormat('yyyy');
+  DateTime? checkInTime;
+  DateTime? checkOutTime;
+  ButtonState buttonState = ButtonState.CheckIn;
+
+  late Timer _timer;
+  int _hours = 0;
+  int _minutes = 0;
+  int _seconds = 0;
+
+  void startTimer() {
+    const oneSecond = Duration(seconds: 1);
+    _timer = Timer.periodic(oneSecond, (timer) {
+      setState(() {
+        _seconds = (timer.tick % 60);
+        _minutes = (timer.tick ~/ 60) % 60;
+        _hours = (timer.tick ~/ 3600);
+      });
+    });
+  }
+
+  void stopTimer() {
+    _timer.cancel();
+  }
+
+  String formatTime(int time) {
+    return time.toString().padLeft(2, '0');
+  }
+
+  bool _isButtonVisible() {
+    return buttonState != ButtonState.Disabled;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,9 +70,9 @@ class AttendanceWidget extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Column(
+                  Column(
                     children: [
-                      Text(
+                      const Text(
                         'Check-in',
                         style: TextStyle(
                           color: textColor,
@@ -30,10 +80,10 @@ class AttendanceWidget extends StatelessWidget {
                           fontWeight: FontWeight.w500,
                         ),
                       ),
-                      SizedBox(height: 3),
+                      const SizedBox(height: 3),
                       Text(
-                        '10:21:58',
-                        style: TextStyle(
+                        '${checkInTime?.hour ?? '00'}:${checkInTime?.minute ?? '00'}:${checkInTime?.second ?? '00'}',
+                        style: const TextStyle(
                           color: Color.fromARGB(255, 23, 144, 85),
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
@@ -50,11 +100,11 @@ class AttendanceWidget extends StatelessWidget {
                           ),
                         ),
                         onPressed: () {},
-                        child: const Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 20),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 20),
                           child: Text(
-                            'Monday',
-                            style: TextStyle(
+                            dayCount.format(DateTime.now()),
+                            style: const TextStyle(
                               color: Colors.white,
                               fontSize: 14,
                               fontWeight: FontWeight.w500,
@@ -63,8 +113,8 @@ class AttendanceWidget extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        '02 Mar 2024',
-                        style: TextStyle(
+                        '${day.format(DateTime.now())}-${month.format(DateTime.now())}-${year.format(DateTime.now())}',
+                        style: const TextStyle(
                           color: textColor,
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
@@ -74,7 +124,7 @@ class AttendanceWidget extends StatelessWidget {
                   ),
                   Column(
                     children: [
-                      Text(
+                      const Text(
                         'Check-out',
                         style: TextStyle(
                           color: textColor,
@@ -82,10 +132,10 @@ class AttendanceWidget extends StatelessWidget {
                           fontWeight: FontWeight.w500,
                         ),
                       ),
-                      SizedBox(height: 3),
+                      const SizedBox(height: 3),
                       Text(
-                        '19:02:41',
-                        style: TextStyle(
+                        '${checkOutTime?.hour ?? '00'}:${checkOutTime?.minute ?? '00'}:${checkOutTime?.second ?? '00'}',
+                        style: const TextStyle(
                           color: Color.fromARGB(255, 244, 108, 98),
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
@@ -161,12 +211,12 @@ class AttendanceWidget extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 25),
-              const Row(
+              Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Column(
                     children: [
-                      Text(
+                      const Text(
                         'Hrs',
                         style: TextStyle(
                           color: textColor,
@@ -175,8 +225,8 @@ class AttendanceWidget extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        '00',
-                        style: TextStyle(
+                        formatTime(_hours),
+                        style: const TextStyle(
                           color: textColor,
                           fontSize: 22,
                           fontWeight: FontWeight.bold,
@@ -184,10 +234,10 @@ class AttendanceWidget extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(width: 16),
+                  const SizedBox(width: 16),
                   Column(
                     children: [
-                      Text(
+                      const Text(
                         'Min',
                         style: TextStyle(
                           color: textColor,
@@ -196,8 +246,8 @@ class AttendanceWidget extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        '00',
-                        style: TextStyle(
+                        formatTime(_minutes),
+                        style: const TextStyle(
                           color: textColor,
                           fontSize: 22,
                           fontWeight: FontWeight.bold,
@@ -205,10 +255,10 @@ class AttendanceWidget extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(width: 16),
+                  const SizedBox(width: 16),
                   Column(
                     children: [
-                      Text(
+                      const Text(
                         'Sec',
                         style: TextStyle(
                           color: textColor,
@@ -217,8 +267,8 @@ class AttendanceWidget extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        '00',
-                        style: TextStyle(
+                        formatTime(_seconds),
+                        style: const TextStyle(
                           color: textColor,
                           fontSize: 22,
                           fontWeight: FontWeight.bold,
@@ -229,30 +279,57 @@ class AttendanceWidget extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 25),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                        backgroundColor:
-                            const Color.fromARGB(255, 160, 228, 163)),
-                    onPressed: () {
-                      print('Check-in 👆');
-                    },
-                    child: const Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 25),
-                      child: Text(
-                        'Check-in',
-                        style: TextStyle(
-                          color: textColor,
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
+              Visibility(
+                visible: _isButtonVisible(),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: buttonState == ButtonState.CheckOut
+                            ? const Color.fromARGB(255, 239, 206, 204)
+                            : const Color.fromARGB(255, 212, 241, 213),
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          if (buttonState == ButtonState.CheckIn) {
+                            checkInTime = DateTime.now();
+                            startTimer();
+                            buttonState = ButtonState.CheckOut;
+                          } else if (buttonState == ButtonState.CheckOut) {
+                            checkOutTime = DateTime.now();
+                            stopTimer();
+                            buttonState = ButtonState.Disabled;
+                          }
+                        });
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 25),
+                        child: Text(
+                          buttonState == ButtonState.CheckIn
+                              ? 'Check-in'
+                              : 'Check-out',
+                          style: const TextStyle(
+                            color: textColor,
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
+              const SizedBox(height: 10),
+              if (buttonState == ButtonState.Disabled)
+                Text(
+                  'Today time: ${formatTime(_hours)}:${formatTime(_minutes)}:${formatTime(_seconds)}',
+                  style: const TextStyle(
+                    color: textColor,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
             ],
           ),
         ),
