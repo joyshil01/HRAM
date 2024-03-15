@@ -41,7 +41,11 @@ class FavoriteCard extends StatelessWidget {
                 itemCount: dataList.length,
                 itemBuilder: (context, index) => Column(
                   children: [
-                    Image.asset(dataList[index]['image']),
+                    Image.asset(
+                      dataList[index]['image'],
+                      height: 60,
+                      width: 70,
+                    ),
                     Text(
                       dataList[index]['titleName'],
                       textAlign: TextAlign.center,

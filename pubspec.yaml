@@ -22,6 +22,8 @@ dependencies:
   table_calendar:
   intl:
   dropdown_button2:
+  charts_flutter:
+  fl_chart: ^0.55.1
 
 dev_dependencies:
   flutter_test:
@@ -38,6 +40,7 @@ flutter:
     - assets/json/
     - assets/svg/
     - assets/jsonData/
+    - assets/icons/
 
   fonts:
     - family: Lora

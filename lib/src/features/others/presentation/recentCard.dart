@@ -41,7 +41,11 @@ class RecentCard extends StatelessWidget {
                 itemCount: dataLists.length,
                 itemBuilder: (context, index) => Column(
                   children: [
-                    Image.asset(dataLists[index]['images']),
+                    Image.asset(
+                      dataLists[index]['images'],
+                      height: 60,
+                      width: 70,
+                    ),
                     Text(
                       dataLists[index]['titleNames'],
                       textAlign: TextAlign.center,

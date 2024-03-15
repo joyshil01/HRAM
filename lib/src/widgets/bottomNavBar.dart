@@ -22,7 +22,6 @@ class _BottomNavBarState extends State<BottomNavBar> {
   final List<Widget> _widgetOptions = <Widget>[
     MainScreen(),
     FormDefinitionScreen(),
-    // FormDefinitionDetails(),
     FormScreen(),
     NotificationScreen(),
     othersScreen(),
@@ -33,12 +32,6 @@ class _BottomNavBarState extends State<BottomNavBar> {
       _selectedIndex = index;
     });
   }
-
-  // void _onNewNotification() {
-  //   setState(() {
-  //     _notificationCount++;
-  //   });
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -99,41 +92,6 @@ class _BottomNavBarState extends State<BottomNavBar> {
               ),
               label: 'Reports',
             ),
-
-            // BottomNavigationBarItem(
-            //   icon: Stack(
-            //     children: [
-            //       Icon(Icons.notifications_sharp),
-            //       if (_notificationCount > 0)
-            //         Positioned(
-            //           right: 0,
-            //           child: Container(
-            //             padding: EdgeInsets.all(2),
-            //             decoration: BoxDecoration(
-            //               color: Colors.red,
-            //               borderRadius: BorderRadius.circular(10),
-            //             ),
-            //             constraints: BoxConstraints(
-            //               minWidth: 12,
-            //               minHeight: 12,
-            //             ),
-            //             child: Text(
-            //               _notificationCount > 99
-            //                   ? '99+'
-            //                   : '$_notificationCount',
-            //               style: TextStyle(
-            //                 color: Colors.white,
-            //                 fontSize: 10,
-            //               ),
-            //               textAlign: TextAlign.center,
-            //             ),
-            //           ),
-            //         ),
-            //     ],
-            //   ),
-            //   label: 'Notification',
-            // ),
-
             BottomNavigationBarItem(
               icon: Icon(Icons.dataset),
               label: 'Other',

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:hrm/src/routing/routeNames.dart';
 import 'package:hrm/src/utils/colors.dart';
 import 'formDefinitionDetails.dart';
+import 'textFormScreen.dart';
 
 class FormScreen extends StatefulWidget {
   const FormScreen({Key? key}) : super(key: key);
@@ -48,17 +49,19 @@ class _FormScreenState extends State<FormScreen> {
           child: DropdownButton2<String>(
             isExpanded: true,
             items: items
-                .map((item) => DropdownMenuItem(
-                      value: item,
-                      child: Text(
-                        item,
-                        style: const TextStyle(
-                          fontSize: 14,
-                          color: textColor2,
-                          fontWeight: FontWeight.bold,
-                        ),
+                .map(
+                  (item) => DropdownMenuItem(
+                    value: item,
+                    child: Text(
+                      item,
+                      style: const TextStyle(
+                        fontSize: 14,
+                        color: textColor2,
+                        fontWeight: FontWeight.bold,
                       ),
-                    ))
+                    ),
+                  ),
+                )
                 .toList(),
             value: selectedValue,
             onChanged: (value) {
@@ -144,7 +147,10 @@ class _FormScreenState extends State<FormScreen> {
   Widget _buildForm(String formName) {
     switch (formName) {
       case 'Employee onboarding':
-        return FormDefinitionDetails();
+        return
+            //////
+            TextFormScreen();
+      // FormDefinitionDetails();
       case 'FormDefinitionDetails':
         return FormDefinitionDetailsForm();
       default:

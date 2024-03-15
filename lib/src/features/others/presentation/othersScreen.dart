@@ -21,62 +21,62 @@ class _othersScreenState extends State<othersScreen> {
 
   List<Map<String, dynamic>> dataList = [
     {
-      'image': 'assets/image/budget.png',
+      'image': 'assets/icons/sale.png',
       'titleName': 'Sales Order',
     },
     {
-      'image': 'assets/image/categories.png',
+      'image': 'assets/icons/quotation.png',
       'titleName': 'Quotations',
     },
     {
-      'image': 'assets/image/shop.png',
+      'image': 'assets/icons/Delivery2.png',
       'titleName': 'Delivery',
     },
     {
-      'image': 'assets/image/recurring.png',
+      'image': 'assets/icons/inventory.png',
       'titleName': 'Inventory',
     },
     {
-      'image': 'assets/image/template.png',
+      'image': 'assets/icons/customers.png',
       'titleName': 'Customers',
     },
     {
-      'image': 'assets/image/travel.png',
+      'image': 'assets/icons/invoice.png',
       'titleName': 'Invoice',
     },
     {
-      'image': 'assets/image/income.png',
+      'image': 'assets/icons/budget.png',
       'titleName': 'Budgets',
     },
     {
-      'image': 'assets/image/export.png',
+      'image': 'assets/icons/target.png',
       'titleName': 'Targets',
     },
   ];
 
   List<Map<String, dynamic>> dataLists = [
     {
-      'images': 'assets/image/rate.png',
+      'images': 'assets/icons/exchange.png',
       'titleNames': 'Exchange rates utility',
     },
     {
-      'images': 'assets/image/loan.png',
+      'images': 'assets/icons/calculate.png',
       'titleNames': 'Calculate loan interest',
     },
     {
-      'images': 'assets/image/savings.png',
+      'images': 'assets/icons/saveings.png',
       'titleNames': 'Savings',
     },
     {
-      'images': 'assets/image/personal.png',
+      'images': 'assets/icons/personal.png',
       'titleNames': 'Personal Income Tax',
     },
     {
-      'images': 'assets/image/split.png',
+      'images': 'assets/icons/split.png',
       'titleNames': 'Split money',
     },
     {
-      'images': 'assets/image/widget.png',
+      'images': 'assets/icons/widget.png',
       'titleNames': 'Widget',
     },
   ];

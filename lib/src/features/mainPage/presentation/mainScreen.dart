@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 // import '../../../routing/routeNames.dart';
 import '../../../utils/colors.dart';
 import '../../../utils/text/mainPageText.dart';
+// import '../domain/linearSales.dart';
 import 'header.dart';
 // import '../../../utils/imageString.dart';
 // import '../../../utils/text/mainPageText.dart';
@@ -62,6 +63,16 @@ class _MainScreenState extends State<MainScreen> {
       );
     });
   }
+
+  String dropdownvalue = 'This Month';
+
+  var items = [
+    'Today',
+    'This Week',
+    'This Month',
+    'Quarter Present',
+    'IThis Year',
+  ];
 
   @override
   void initState() {
@@ -258,24 +269,6 @@ class _MainScreenState extends State<MainScreen> {
       body: ListView(
         children: const [
           HeaderMainScreen(),
-          SizedBox(height: 8),
-          Card(
-            elevation: 1.25,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Expense vs Income',
-                  style: TextStyle(
-                    color: textColor,
-                    fontWeight: FontWeight.w600,
-                    fontSize: 16,
-                  ),
-                ),
-                SizedBox(height: 5),
-              ],
-            ),
-          ),
         ],
       ),
     );

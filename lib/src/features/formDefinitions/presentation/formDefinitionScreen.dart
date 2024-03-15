@@ -34,15 +34,15 @@ class _FormDefinitionScreenState extends State<FormDefinitionScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Row(
+        title: const Row(
           children: [
-            IconButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              icon: const Icon(Icons.arrow_back_ios),
-            ),
-            const Text('FormDefinitions'),
+            // IconButton(
+            //   onPressed: () {
+            //     Navigator.pop(context);
+            //   },
+            //   icon: const Icon(Icons.arrow_back_ios),
+            // ),
+            Text('FormDefinitions'),
           ],
         ),
         automaticallyImplyLeading: false,
